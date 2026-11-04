@@ -1,0 +1,188 @@
+/* ============================================================
+   Mod Zen « Pilotage Idem »
+   Palette du dashboard (bleu-gris, accent bleu). Chaque dossier prend une
+   couleur de catégorie. Réglage « Apparence » dans Réglages > Mods :
+   Automatique (comme le Mac), Clair ou Sombre.
+   ============================================================ */
+
+/* ---------- Palette claire (par défaut) ---------- */
+:root {
+  --pi-bg: #eef2f6;
+  --pi-surface: #ffffff;
+  --pi-ink: #16222e;
+  --pi-mute: #5a6b7b;
+  --pi-line: #d5dde6;
+  --pi-nav: #e3e8ee;
+  --pi-hi: #d1dae4;
+  --pi-accent: #2c5d8f;
+  --pi-accent-ink: #ffffff;
+  --pi-accent-soft: #dde8f3;
+  --pi-c-bleu: #2a6aa6;
+  --pi-c-cyan: #1c7c83;
+  --pi-c-violet: #6454a8;
+  --pi-c-orange: #a2622a;
+  --pi-c-vert: #2b7a5b;
+  --pi-c-ambre: #9a5b00;
+  --pi-c-rose: #a8467a;
+  --pi-c-rouge: #c0392b;
+  --pi-c-gris: #5a6b7b;
+}
+
+/* ---------- Palette sombre : automatique si le Mac est en sombre ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pi-bg: #0e151d;
+    --pi-surface: #16212c;
+    --pi-ink: #e6edf3;
+    --pi-mute: #93a7ba;
+    --pi-line: #263545;
+    --pi-nav: #111b26;
+    --pi-hi: #1e2f40;
+    --pi-accent: #7fb0dc;
+    --pi-accent-ink: #0a1a2a;
+    --pi-accent-soft: #1a2d41;
+    --pi-c-bleu: #86b8e6;
+    --pi-c-cyan: #6fc4c9;
+    --pi-c-violet: #ada0e6;
+    --pi-c-orange: #e6a96a;
+    --pi-c-vert: #6fcfa6;
+    --pi-c-ambre: #f0b45a;
+    --pi-c-rose: #e69cc6;
+    --pi-c-rouge: #ff8a8e;
+    --pi-c-gris: #93a7ba;
+  }
+}
+
+/* ---------- Réglage « Apparence » : forcer clair ou sombre ---------- */
+@media -moz-pref("mod.pilotage.mode", "clair") {
+  :root {
+    --pi-bg: #eef2f6;
+    --pi-surface: #ffffff;
+    --pi-ink: #16222e;
+    --pi-mute: #5a6b7b;
+    --pi-line: #d5dde6;
+    --pi-nav: #e3e8ee;
+    --pi-hi: #d1dae4;
+    --pi-accent: #2c5d8f;
+    --pi-accent-ink: #ffffff;
+    --pi-accent-soft: #dde8f3;
+    --pi-c-bleu: #2a6aa6;
+    --pi-c-cyan: #1c7c83;
+    --pi-c-violet: #6454a8;
+    --pi-c-orange: #a2622a;
+    --pi-c-vert: #2b7a5b;
+    --pi-c-ambre: #9a5b00;
+    --pi-c-rose: #a8467a;
+    --pi-c-rouge: #c0392b;
+    --pi-c-gris: #5a6b7b;
+  }
+}
+@media -moz-pref("mod.pilotage.mode", "sombre") {
+  :root {
+    --pi-bg: #0e151d;
+    --pi-surface: #16212c;
+    --pi-ink: #e6edf3;
+    --pi-mute: #93a7ba;
+    --pi-line: #263545;
+    --pi-nav: #111b26;
+    --pi-hi: #1e2f40;
+    --pi-accent: #7fb0dc;
+    --pi-accent-ink: #0a1a2a;
+    --pi-accent-soft: #1a2d41;
+    --pi-c-bleu: #86b8e6;
+    --pi-c-cyan: #6fc4c9;
+    --pi-c-violet: #ada0e6;
+    --pi-c-orange: #e6a96a;
+    --pi-c-vert: #6fcfa6;
+    --pi-c-ambre: #f0b45a;
+    --pi-c-rose: #e69cc6;
+    --pi-c-rouge: #ff8a8e;
+    --pi-c-gris: #93a7ba;
+  }
+}
+
+/* ---------- Fond et texte de la barre latérale ---------- */
+:root {
+  --zen-main-browser-background: var(--pi-nav) !important;
+  --zen-primary-color: var(--pi-accent) !important;
+  --sidebar-text-color: var(--pi-ink) !important;
+  --toolbar-bgcolor: var(--pi-nav) !important;
+  --toolbar-color: var(--pi-ink) !important;
+  --tab-hover-background-color: var(--pi-hi) !important;
+}
+#navigator-toolbox,
+#zen-sidebar-top-buttons,
+#zen-sidebar-bottom-buttons,
+#TabsToolbar {
+  background: var(--pi-nav) !important;
+  color: var(--pi-ink) !important;
+  border-color: var(--pi-line) !important;
+}
+
+/* ---------- Onglets ---------- */
+.tabbrowser-tab .tab-label { color: var(--pi-ink) !important; }
+.tabbrowser-tab:hover:not([selected]) .tab-background {
+  background: var(--pi-hi) !important;
+}
+.tabbrowser-tab[selected] .tab-background {
+  background: var(--pi-accent) !important;
+  box-shadow: none !important;
+}
+.tabbrowser-tab[selected] .tab-label { color: var(--pi-accent-ink) !important; }
+
+/* ---------- Dossiers : une couleur de catégorie par dossier ---------- */
+tab-group { --pi-folder: var(--pi-c-bleu); }
+tab-group[color="blue"]   { --pi-folder: var(--pi-c-bleu); }
+tab-group[color="cyan"]   { --pi-folder: var(--pi-c-cyan); }
+tab-group[color="purple"] { --pi-folder: var(--pi-c-violet); }
+tab-group[color="orange"] { --pi-folder: var(--pi-c-orange); }
+tab-group[color="green"]  { --pi-folder: var(--pi-c-vert); }
+tab-group[color="yellow"] { --pi-folder: var(--pi-c-ambre); }
+tab-group[color="pink"]   { --pi-folder: var(--pi-c-rose); }
+tab-group[color="red"]    { --pi-folder: var(--pi-c-rouge); }
+tab-group[color="gray"],
+tab-group[color="grey"]   { --pi-folder: var(--pi-c-gris); }
+
+tab-group:not([color]):nth-of-type(6n+1) { --pi-folder: var(--pi-c-bleu); }
+tab-group:not([color]):nth-of-type(6n+2) { --pi-folder: var(--pi-c-cyan); }
+tab-group:not([color]):nth-of-type(6n+3) { --pi-folder: var(--pi-c-violet); }
+tab-group:not([color]):nth-of-type(6n+4) { --pi-folder: var(--pi-c-orange); }
+tab-group:not([color]):nth-of-type(6n+5) { --pi-folder: var(--pi-c-vert); }
+tab-group:not([color]):nth-of-type(6n+6) { --pi-folder: var(--pi-c-rose); }
+
+tab-group {
+  --tab-group-color: var(--pi-folder) !important;
+  --tab-group-color-invert: var(--pi-folder) !important;
+  --tab-group-color-pale: color-mix(in srgb, var(--pi-folder) 16%, transparent) !important;
+  border-left: 3px solid var(--pi-folder) !important;
+  border-radius: 10px !important;
+  background: color-mix(in srgb, var(--pi-folder) 9%, transparent) !important;
+  margin-block: 2px !important;
+}
+.tab-group-label-container > label {
+  color: var(--pi-folder) !important;
+  font-weight: 700 !important;
+  letter-spacing: .01em;
+}
+.tab-group-label-container:hover {
+  background: color-mix(in srgb, var(--pi-folder) 16%, transparent) !important;
+  border-radius: 8px;
+}
+tab-group tab-group {
+  border-left-width: 2px !important;
+  margin-left: 6px !important;
+}
+
+/* ---------- Boutons et champs ---------- */
+#zen-sidebar-top-buttons toolbarbutton:hover,
+#zen-sidebar-bottom-buttons toolbarbutton:hover {
+  background: var(--pi-hi) !important;
+  border-radius: 8px;
+}
+#urlbar-background,
+#urlbar[focused] > #urlbar-background {
+  background: var(--pi-surface) !important;
+  border: 1px solid var(--pi-line) !important;
+  border-radius: 10px !important;
+}
+#urlbar[focused] > #urlbar-background { border-color: var(--pi-accent) !important; }

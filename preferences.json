@@ -1,0 +1,13 @@
+[
+  {
+    "property": "mod.pilotage.mode",
+    "label": "Apparence",
+    "type": "dropdown",
+    "defaultValue": "auto",
+    "options": [
+      { "label": "Automatique (comme le Mac)", "value": "auto" },
+      { "label": "Clair", "value": "clair" },
+      { "label": "Sombre", "value": "sombre" }
+    ]
+  }
+]
